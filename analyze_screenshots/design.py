@@ -17,7 +17,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_main_window):
         super().__init__()
         self.setupUi(self)
         self.path_img = "/run/user/1000/doc/746df25a/YOUTUBE_id24_s0_75.png"
-        self.path_model = "/run/user/1000/doc/746df25a/YOUTUBE_id24_s0_75.png"
+        self.path_model = "/run/user/1000/doc/a183efa8/my_model_weights10.h5"
         self.model = None
         folder_img = QIcon('data/etc/file_manager.jpg')
         self.pushButton_select_img.setIcon(folder_img)

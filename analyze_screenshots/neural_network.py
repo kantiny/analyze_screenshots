@@ -40,8 +40,8 @@ class Model:
 
     def train(self, train_dir, epochs, batch_size):
         total_train_count = 0
-        for dir in train_dir:
-            total_train_count += len(os.listdir(dir))
+        for dit_item in train_dir:
+            total_train_count += len(os.listdir(dit_item))
 
         train_image_generator = ImageDataGenerator(rescale=1. / 255)
         train_data_gen = train_image_generator.flow_from_directory(batch_size=batch_size,
