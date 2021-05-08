@@ -15,7 +15,7 @@ IMG_WIDTH = 150
 
 
 class Model:
-    def __init__(self, epoch):
+    def __init__(self):
         self.model = Sequential([
             Conv2D(
                 16,
@@ -36,7 +36,7 @@ class Model:
         self.history = None
 
     def load(self, file_name):
-        self.model.load_weights('{}.h5'.format(file_name))
+        self.model.load_weights(file_name)
 
     def train(self, train_dir, epochs, batch_size):
         total_train_count = 0
@@ -61,7 +61,7 @@ class Model:
         )
 
     def save(self, file_name):
-        self.model.save_weights('{}.h5'.format(file_name))
+        self.model.save_weights(file_name)
 
     def get_plot(self, epochs):
         acc = self.history.history['acc']
@@ -84,7 +84,8 @@ class Model:
         with open("{}.txt".format(file_name), mode='w') as file:
             for img_name in os.listdir(test_dir):
                 if get_type_of_file(img_name) == ".png":
-                    img = get_img_for_predict(os.path.join(test_dir, image))
+                    img_path = os.path.join(test_dir, img_name)
+                    img = get_img_for_predict(img_path)
                     print('{}  -  {}'.format(image, str(1 - self.model.predict(img)[0, 0])))
                     file.write('{}  -  {}'.format(image, str(1 - self.model.predict(img)[0, 0])))
 
