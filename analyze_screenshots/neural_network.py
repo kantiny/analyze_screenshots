@@ -84,9 +84,12 @@ class Model:
         with open("{}.txt".format(file_name), mode='w') as file:
             for img_name in os.listdir(test_dir):
                 if get_type_of_file(img_name) == ".png":
-                    img = get_img_for_predict(test_dir, image)
+                    img = get_img_for_predict(os.path.join(test_dir, image))
                     print('{}  -  {}'.format(image, str(1 - self.model.predict(img)[0, 0])))
                     file.write('{}  -  {}'.format(image, str(1 - self.model.predict(img)[0, 0])))
 
     def analyse_photo(self, img_path):
         print(img_path)
+        if get_type_of_file(img_path) == ".png":
+            img = get_img_for_predict(img_path)
+            return self.model.predict(img)[0, 0]
