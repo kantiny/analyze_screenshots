@@ -8,7 +8,7 @@ from tensorflow.contrib.keras.api.keras.layers \
 from tensorflow.contrib.keras.api.keras.models import Sequential
 from tensorflow.contrib.keras.api.keras.preprocessing.image import ImageDataGenerator
 
-from utils import get_img_for_predict, get_type_of_file
+from analyze_screenshots.utils import get_img_for_predict, get_type_of_file
 
 IMG_HEIGHT = 150
 IMG_WIDTH = 150
