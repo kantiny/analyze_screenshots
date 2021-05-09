@@ -20,8 +20,8 @@ def get_type_of_file(file_name: str):
 
 def get_str_result(res):
     if res >= 0.7:
-        return "Кадр из видео, являющегося пересъемкой"
+        return "\nПресъемка"
     elif res <= 0.4:
-        return "Кадр из видео, являющегося оригиналом"
+        return "\nОригинал"
     else:
-        return "Невозможно точно классифицировать видео"
+        return "\nНевозможно точно классифицировать\nвидео"

@@ -11,6 +11,10 @@ class WindowNN:
     def __init__(self):
         self.ui = loadUi('gui/window_neural_network.ui')
 
+    def show(self):
+        self.ui.show()
+
+
 
 class MainWindow(QtWidgets.QMainWindow, main_window.Ui_main_window):
     def __init__(self):
@@ -27,6 +31,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_main_window):
         self.pushButton_select_img.setIcon(folder_img)
         self.pushButton_select_model.clicked.connect(self.browse_folder_model)
         self.pushButton_analyze.clicked.connect(self.analyze)
+        self.pushButton_create_model.clicked.connect(self.run_model_window)
 
     def browse_folder_img(self):
         file_name = QtWidgets.QFileDialog.getOpenFileName()
@@ -51,4 +56,5 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_main_window):
 
     def run_model_window(self):
         nn_form = WindowNN()
-        nn_form.ui.show()
+        print(type(nn_form.ui))
+        nn_form.show()

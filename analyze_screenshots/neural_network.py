@@ -64,6 +64,7 @@ class Model:
         self.model.save_weights(file_name)
 
     def get_plot(self, epochs):
+        print(self.history.history)
         acc = self.history.history['acc']
         loss = self.history.history['loss']
 
@@ -90,7 +91,6 @@ class Model:
                     file.write('{}  -  {}'.format(image, str(1 - self.model.predict(img)[0, 0])))
 
     def analyse_photo(self, img_path):
-        print(img_path)
         if get_type_of_file(img_path) == ".png":
             img = get_img_for_predict(img_path)
             return self.model.predict(img)[0, 0]
