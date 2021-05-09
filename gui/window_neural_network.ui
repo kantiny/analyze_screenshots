@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>430</width>
-    <height>318</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
    <property name="title">
     <string>Выберите дирректорию с обучающей выборкой</string>
    </property>
-   <widget class="QLineEdit" name="lineEdit_path_img">
+   <widget class="QLineEdit" name="lineEdit_path_dir">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -38,7 +38,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_select_img">
+   <widget class="QPushButton" name="pushButton_select_dir">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -68,7 +68,7 @@
    <property name="title">
     <string>Введите имя файла, в котором будет сохранена модель</string>
    </property>
-   <widget class="QLineEdit" name="lineEdit_name_file">
+   <widget class="QLineEdit" name="lineEdit_name_file_model">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -102,7 +102,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_train">
    <property name="geometry">
     <rect>
      <x>228</x>
@@ -121,7 +121,7 @@
      <x>10</x>
      <y>220</y>
      <width>411</width>
-     <height>91</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="locale">
@@ -130,7 +130,7 @@
    <property name="title">
     <string>Выберите дирректорию c тестовыми данными</string>
    </property>
-   <widget class="QLineEdit" name="lineEdit_path_img_test">
+   <widget class="QLineEdit" name="lineEdit_path_dir_test">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -140,7 +140,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_select_img_test">
+   <widget class="QPushButton" name="pushButton_select_dir_test">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -157,17 +157,40 @@
       <normaloff>../data/etc/file_manager.jpg</normaloff>../data/etc/file_manager.jpg</iconset>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_test">
+  </widget>
+  <widget class="QPushButton" name="pushButton_test">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>360</y>
+     <width>271</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Тестировать полученную модель</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_test_file">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>411</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Введите имя файла, в который записать результат</string>
+   </property>
+   <widget class="QLineEdit" name="lineEdit_name_file_test">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>60</y>
-      <width>181</width>
-      <height>25</height>
+      <x>10</x>
+      <y>30</y>
+      <width>391</width>
+      <height>21</height>
      </rect>
-    </property>
-    <property name="text">
-     <string>Обучить модель</string>
     </property>
    </widget>
   </widget>
