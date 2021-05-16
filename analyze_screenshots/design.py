@@ -5,8 +5,6 @@ from gui import main_window, window_neural_network
 from analyze_screenshots.neural_network import Model
 from analyze_screenshots.utils import get_str_result
 
-FOLDER_ICON = QIcon('data/etc/file_manager.jpg')
-
 
 class WindowNN(QtWidgets.QDialog, window_neural_network.Ui_Dialog):
     def __init__(self, parent=None):
@@ -14,6 +12,7 @@ class WindowNN(QtWidgets.QDialog, window_neural_network.Ui_Dialog):
         self.setupUi(self)
         self.path_dir = None
         self.path_dir_test = None
+        FOLDER_ICON = QIcon('data/etc/file_manager.jpg')
         self.pushButton_select_dir.setIcon(FOLDER_ICON)
         self.pushButton_select_dir_test.setIcon(FOLDER_ICON)
         self.pushButton_select_dir.clicked.connect(self.browse_folder_train)
@@ -43,7 +42,7 @@ class WindowNN(QtWidgets.QDialog, window_neural_network.Ui_Dialog):
 
     def test_model(self):
         self.path_dir_test = self.lineEdit_path_dir_test.text()
-        self.name_test_res = self.lineEdit_name_file_test
+        self.name_test_res = self.lineEdit_name_file_test.text()
         self.model.testing(self.path_dir_test, self.name_test_res)
 
 
@@ -54,15 +53,19 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_main_window):
         self.path_img = "/run/user/1000/doc/746df25a/YOUTUBE_id24_s0_75.png"
         self.path_model = "/run/user/1000/doc/a183efa8/my_model_weights10.h5"
         self.model = None
+        FOLDER_ICON = QIcon('data/etc/file_manager.jpg')
         self.pushButton_select_img.setIcon(FOLDER_ICON)
         self.pushButton_select_model.setIcon(FOLDER_ICON)
         self.pushButton_select_img.clicked.connect(self.browse_folder_img)
-        folder_img = QIcon('data/etc/file_manager.jpg')
-        self.pushButton_select_img.setIcon(folder_img)
         self.pushButton_select_model.clicked.connect(self.browse_folder_model)
         self.pushButton_analyze.clicked.connect(self.analyze)
         self.pushButton_create_model.clicked.connect(self.run_model_window)
         self.nn_form = None
+
+    def setIcon(self):
+        pass
+        folder_img = QIcon('data/etc/file_manager.jpg')
+        self.pushButton_select_img.setIcon(folder_img)
 
     def browse_folder_img(self):
         file_name = QtWidgets.QFileDialog.getOpenFileName()
