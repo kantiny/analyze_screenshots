@@ -1,5 +1,3 @@
-from matplotlib import image
-
 import os
 import matplotlib.pyplot as plt
 
