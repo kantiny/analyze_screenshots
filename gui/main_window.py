@@ -29,6 +29,7 @@ class Ui_main_window(object):
         self.pushButton_select_img.setObjectName("pushButton_select_img")
         self.label_img = QtWidgets.QLabel(self.groupBox_img)
         self.label_img.setGeometry(QtCore.QRect(50, 70, 241, 231))
+        self.label_img.setText("")
         self.label_img.setObjectName("label_img")
         self.lineEdit_path_img = QtWidgets.QLineEdit(self.groupBox_img)
         self.lineEdit_path_img.setGeometry(QtCore.QRect(10, 30, 281, 21))
@@ -80,7 +81,6 @@ class Ui_main_window(object):
         _translate = QtCore.QCoreApplication.translate
         main_window.setWindowTitle(_translate("main_window", "MainWindow"))
         self.groupBox_img.setTitle(_translate("main_window", "Выберите картинку для анализа"))
-        self.label_img.setText(_translate("main_window", "TextLabel"))
         self.groupBox_model.setTitle(_translate("main_window", "Выберите файл с расширением .h5"))
         self.groupBox_analysis.setTitle(_translate("main_window", "Обработка кадра нейронной моделью"))
         self.pushButton_analyze.setText(_translate("main_window", "Анализировать фото"))

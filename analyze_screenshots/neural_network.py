@@ -8,7 +8,7 @@ from tensorflow.contrib.keras.api.keras.layers \
 from tensorflow.contrib.keras.api.keras.models import Sequential
 from tensorflow.contrib.keras.api.keras.preprocessing.image import ImageDataGenerator
 
-from analyze_screenshots.utils import get_img_for_predict, get_type_of_file
+from analyze_screenshots.utils import get_img_for_predict, get_type_of_file, get_str_result
 
 IMG_HEIGHT = 150
 IMG_WIDTH = 150
@@ -38,10 +38,11 @@ class Model:
     def load(self, file_name):
         self.model.load_weights(file_name)
 
-    def train(self, train_dir, epochs, batch_size):
+    def train(self, train_dir="data/IDRND_FASDB_train", epochs=1, batch_size=128):
         total_train_count = 0
-        for dit_item in train_dir:
-            total_train_count += len(os.listdir(dit_item))
+        for dir_item in os.listdir(train_dir):
+            path = '/'.join([train_dir, dir_item])
+            total_train_count += len(os.listdir(path))
 
         train_image_generator = ImageDataGenerator(rescale=1. / 255)
         train_data_gen = train_image_generator.flow_from_directory(batch_size=batch_size,
@@ -61,7 +62,7 @@ class Model:
         )
 
     def save(self, file_name):
-        self.model.save_weights(file_name)
+        self.model.save_weights('models/{}.h5'.format(file_name))
 
     def get_plot(self, epochs):
         print(self.history.history)
@@ -87,8 +88,9 @@ class Model:
                 if get_type_of_file(img_name) == ".png":
                     img_path = os.path.join(test_dir, img_name)
                     img = get_img_for_predict(img_path)
-                    print('{}  -  {}'.format(image, str(1 - self.model.predict(img)[0, 0])))
-                    file.write('{}  -  {}'.format(image, str(1 - self.model.predict(img)[0, 0])))
+                    result = 1 - self.model.predict(img)[0, 0]
+                    print('{} - {}  -  {}'.format(img_name, str(result), get_str_result(result)))
+                    file.write('{} - {}  -  {}\n'.format(img_name, str(result), get_str_result(result)))
 
     def analyse_photo(self, img_path):
         if get_type_of_file(img_path) == ".png":

@@ -2,12 +2,9 @@ from tensorflow.contrib.keras.api.keras.preprocessing.image import load_img, img
 import numpy as np
 from os.path import join
 
-# from analyze_screenshots.neural_network import IMG_HEIGHT, IMG_WIDTH
-
 
 def get_img_for_predict(image_file):
     im = load_img(join(image_file), target_size=(150, 150))
-    # im = load_img(join(image_file), target_size=(IMG_HEIGHT, IMG_WIDTH))
     im = img_to_array(im)
     im = np.expand_dims(im, axis=0)
     im /= 255

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>430</width>
-    <height>400</height>
+    <height>470</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -119,7 +119,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>220</y>
+     <y>290</y>
      <width>411</width>
      <height>61</height>
     </rect>
@@ -162,7 +162,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>360</y>
+     <y>430</y>
      <width>271</width>
      <height>25</height>
     </rect>
@@ -175,7 +175,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>290</y>
+     <y>360</y>
      <width>411</width>
      <height>61</height>
     </rect>
@@ -191,6 +191,49 @@
       <width>391</width>
       <height>21</height>
      </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_test_model">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>411</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="locale">
+    <locale language="Russian" country="Russia"/>
+   </property>
+   <property name="title">
+    <string>Выберите файл c моделью для тестирования</string>
+   </property>
+   <widget class="QLineEdit" name="lineEdit_path_model_test">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>351</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_select_model_test">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>30</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../data/etc/file_manager.jpg</normaloff>../data/etc/file_manager.jpg</iconset>
     </property>
    </widget>
   </widget>
